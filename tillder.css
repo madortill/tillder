@@ -1,0 +1,387 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    direction: rtl; 
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+    font-family: "Heebo";
+}
+
+/* loder */
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 800;
+    background-color: black;
+    opacity: 0.9;
+}
+
+.loader > img {
+    width: 50vw;
+}
+
+.loader.fade {
+    animation: fadeOut 1s 2s forwards;
+}
+
+
+@font-face {
+    font-family: Heebo;
+    src: url("./assets/fonts/heebo/Heebo-SemiBold.ttf");
+    font-weight: 200;
+}
+
+@keyframes slideRight {
+    100% {
+        transform: translateX(150%);
+    }
+}
+
+@keyframes slideLeft {
+    100% {
+        transform: translateX(-150%);
+    }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* tillder */
+.tillder {
+    background-color: white;}
+
+.tillderTitle {
+    width: 40vw;
+    top: 3vh;
+    z-index: 3;
+}
+
+.odotButton {
+    position: absolute;
+    width: 8vw;
+    top: 3.5vh;
+    left: 6vw;
+}
+
+.aboutInfo {
+    width: 90vw;
+    height: 70vh;
+    z-index: 2;
+    border-radius: 0.5em;
+    background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0)100%), linear-gradient(250deg, #bc427a 0%, #e22b6d 25%, #ea7265 50%, #ea7265 75%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.odotTitle {
+    width: 44vw;
+}
+
+.aboutInfo .xIcon{
+    width: 30vw;
+}
+  
+.aboutInfo div {
+    text-align: center;
+}
+
+.aboutInfo p {
+    text-align: right;
+}
+
+.tillLogo {
+    width: 15vw;
+    position: absolute;
+    top: -11.5vh;
+    left: 2vh;
+}
+
+.bhdLogo {
+    width: 11vw;
+    position: absolute;
+    top: -11.5vh;
+    right: 2vh;
+}
+
+.tillderQuestionContainer {
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    z-index: 2;
+}
+
+.tillderQuestionContainer div {
+    padding: 1em;
+}
+
+.tillderContentContainer.slideRight {
+    animation: slideRight 0.5s forwards;
+}
+
+.tillderContentContainer.slideLeft {
+    animation: slideLeft 0.5s forwards;
+}
+
+.tillderContentContainer {
+    /* transform: translate3d(0px, 0px, 0px) scale(1, 1) rotate3d(0, 0, 0, 0deg); */
+    width: 96%;
+    height: 75%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0.5em;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 11vh;
+    border-radius: 0.5em;
+    display: flex;
+    align-content: flex-end;
+    align-items: center;
+    justify-content: center;
+}
+
+.tillderContentContainer.animate {
+    transition: all 0.3s;
+}
+
+.tillderGradientContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0.5em;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0vh;
+    border-radius: 0.5em;
+    background: linear-gradient(360deg, black 0%, rgba(0, 0, 0, 0)50%);
+}
+
+.tillder .ansContainer {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 2;
+
+}
+
+.tillder .ansPic {
+    width: 15vw;
+    height: 8vh;
+}
+
+.tillderEndContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #343433;
+    opacity: 0;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-evenly;
+    visibility: hidden ;
+}
+
+.tillderEndContainer.fadeIn {
+    animation: fadeIn 2s forwards;
+}
+
+.picTillderEnd {
+    width: 30vw;
+    margin: 0.4em;
+    border: 0.2em solid white;
+    border-radius: 50%;
+}
+
+.tillderAnsFeedback {
+    border: 0.1em solid white;
+    width: 50vw;
+    margin: 0.4em;
+    padding: 0.4em;
+    border-radius: 0.4em;
+}
+
+.tillderEndContainer .answerContainer {
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.tillderScroll {
+    width: 5vw;
+    margin: 0.4em;
+}
+
+.sendToHome {
+    position: absolute;
+    top: 8vh;
+    right: 2vw;
+    width: 7vw;
+}
+
+.tillder .arrowPic {
+    width: 8vw;
+    height: 4vh;
+    border-radius: 50%;
+    border: 0.4em solid #bfbfbf;
+    text-align: center;
+    padding: 0.6em;
+}
+
+.tillder .tillderFeedBackCorrectAns {
+    width: 70vw;
+    border-radius: 2em;
+    border: 0.4em solid #bfbfbf;
+    background-color: white;
+    text-align: center;
+    padding: 0.5em;
+    position: absolute;
+    top: 50vh;
+}
+
+.tillderPic {
+    width: 100%;
+}
+
+.tillderFeedBackPic {
+    height: 7vh;
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+}
+
+.tillderFeedBackContainer {
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tillderFeedBackContainer .tillderGradientContainer {
+    border-radius: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+.tillderFeedBackIcon {
+    width: 15vw;
+    padding: 1em;
+}
+
+.tillderFeedBackText {
+    width: 70vw;
+}
+
+.tillderFeedBackNextButton {
+    position: absolute;
+    bottom: 10vh;
+    color: gray;
+    z-index: 2;
+    width: 70vw;
+    height: 5vh;
+    padding: 0.3em;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-image: url("./assets/images/generic_button.svg");
+}
+
+.Feedback {
+    color: white;
+}
+
+.endButtons {
+    width: 44vw;
+    padding: 0.3em;
+}
+
+.tillderFeedBackTextEnd {
+    width: 95vw;
+}
+
+.tillderFeedbackTitle {
+    height: 70vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    z-index: 2;
+}
+
+
+
+
+/* classes */
+.darkScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bg {
+    direction: rtl; 
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.centerX {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.flexCenter {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.centerItem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
