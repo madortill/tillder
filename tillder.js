@@ -76,10 +76,10 @@ const addContentToQuestion = () => {
     // add answeres
     let ansContainer = El("div", {classes: [`ansContainer`,]},
         El("div", {classes: [`binaryAns`, `true`, `ans`] , listeners: {click : onClickTillderAnswer}},
-        El("img", {classes: [`ansPic`], attributes: { src: `../assets/images/heart_icon.svg`}},),
+        El("img", {classes: [`ansPic`], attributes: { src: `./assets/images/heart_icon.svg`}},),
     ),
         El("div", {classes: [`binaryAns`, `false`, `ans`] , listeners: {click : onClickTillderAnswer}},
-        El("img", {classes: [`ansPic`], attributes: {src: `../assets/images/wrong_icon.svg`}},),
+        El("img", {classes: [`ansPic`], attributes: {src: `./assets/images/wrong_icon.svg`}},),
     ),
     );
     document.querySelector(`.tillderContentContainer`).append(ansContainer);
@@ -118,8 +118,8 @@ const onClickTillderAnswer = (event) => {
     document.querySelector(`.odotButton`).classList.add(`hidden`);
     let container = El("div", {cls: `tillderFeedBackContainer`},
         El("div", {classes: [`tillderGradientContainer`, `flexCenter`]}, ),
-        El("img", {attributes: {class: "tillderFeedBackIcon", src: "../assets/images/heart_icon.svg"}}),
-        El("img", {attributes: {class: "tillderFeedBackText", src: "../assets/images/right_answer.svg"}}),
+        El("img", {attributes: {class: "tillderFeedBackIcon", src: "./assets/images/heart_icon.svg"}}),
+        El("img", {attributes: {class: "tillderFeedBackText", src: "./assets/images/right_answer.svg"}}),
         El("div", {attributes: {class: "tillderFeedBackNextButton"}, listeners: {click: afterQuestionFeedback}}, "המשך לשאלה הבאה"),
     );
     document.querySelector(`.tillderContentHeadContainer`).append(container);
@@ -129,8 +129,8 @@ const onClickTillderAnswer = (event) => {
     if (String(arrTillderQuestions[nTillderCurrentQuestion].selectedAns) === String(arrTillderQuestions[nTillderCurrentQuestion].correctAns)){
         nTillderCorrectAnswers++;
     } else {
-        document.querySelector(`.tillderFeedBackIcon`).setAttribute("src", "../assets/images/wrong_icon.svg")
-        document.querySelector(`.tillderFeedBackText`).setAttribute("src", "../assets/images/wrong_answer.svg")
+        document.querySelector(`.tillderFeedBackIcon`).setAttribute("src", "./assets/images/wrong_icon.svg")
+        document.querySelector(`.tillderFeedBackText`).setAttribute("src", "./assets/images/wrong_answer.svg")
     }
 
     if (nTillderCurrentQuestion + 1 === AMOUNT_OF_TILLDER_QUESTION) {
@@ -163,20 +163,20 @@ const endTillderExer = () => {
     // add feedback accordingly
     if(nTillderCorrectAnswers/AMOUNT_OF_TILLDER_QUESTION >= PASSING_RATE){ // win - add precentegt
         feedback = El("div", {classes: ["tillderFeedbackTitle"]}, 
-        El("img", {attributes: {class: "tillderFeedBackIcon", src: "../assets/images/kol_hakavod.svg"}}),
-        El("img", {attributes: {class: "tillderFeedBackTextEnd", src: "../assets/images/good_ending.svg"}}),
+        El("img", {attributes: {class: "tillderFeedBackIcon", src: "./assets/images/kol_hakavod.svg"}}),
+        El("img", {attributes: {class: "tillderFeedBackTextEnd", src: "./assets/images/good_ending.svg"}}),
         // El("div", {cls: `Feedback`}, `קבלו ${calcPercentageWin(nTillderCorrectAnswers, AMOUNT_OF_TILLDER_QUESTION)}% לסוללה שלכם`),
         El("img", {listeners: {click: () => {
             window.close()  
-        }}, attributes: {class: "tillderFeedBackEndButton endButtons", src: "../assets/images/finish_button.svg"}}),
-        El("img", {listeners: {click: restartTilder}, attributes: {class: "tillderFeedBackRestartButton endButtons", src: "../assets/images/restart_button .svg"}}),
+        }}, attributes: {class: "tillderFeedBackEndButton endButtons", src: "./assets/images/finish_button.svg"}}),
+        El("img", {listeners: {click: restartTilder}, attributes: {class: "tillderFeedBackRestartButton endButtons", src: "./assets/images/restart_button .svg"}}),
         );
     } else {// loose - remove 5 %
         feedback = El("div", {classes: ["tillderFeedbackTitle"]}, 
-        El("img", {attributes: {class: "tillderFeedBackIcon", src: "../assets/images/oyyy.svg"}}),
-        El("img", {attributes: {class: "tillderFeedBackTextEnd", src: "../assets/images/bad_ending.svg"}}),
+        El("img", {attributes: {class: "tillderFeedBackIcon", src: "./assets/images/oyyy.svg"}}),
+        El("img", {attributes: {class: "tillderFeedBackTextEnd", src: "./assets/images/bad_ending.svg"}}),
         // El("div", {cls: `Feedback`}, `סתם בזבזתם 5%....`),
-        El("img", {listeners: {click: restartTilder}, attributes: {class: "tillderFeedBackRestartButton endButtons", src: "../assets/images/restart_button .svg"}}),
+        El("img", {listeners: {click: restartTilder}, attributes: {class: "tillderFeedBackRestartButton endButtons", src: "./assets/images/restart_button .svg"}}),
         );
     }
     document.querySelector(`.tillderFeedBackContainer`).append(feedback);
@@ -308,12 +308,12 @@ const handlePan = () => {
             if (ev.additionalEvent === "panright") {
                 transform.angle = angle;
                 transform.rz = -1;
-                let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "../assets/images/right.svg"}}, );
+                let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "./assets/images/right.svg"}}, );
                 document.querySelector(`.tillderContentContainer`).append(feedBackPic);
             } else if (ev.additionalEvent === "panleft") {
                 transform.angle = angle;
                 transform.rz = 1;
-                let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "../assets/images/wrong.svg"}}, );
+                let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "./assets/images/wrong.svg"}}, );
                 document.querySelector(`.tillderContentContainer`).append(feedBackPic);
             }
         }
