@@ -5,14 +5,14 @@ const DATA = {
         "appContent":  [
             {
                 "type": "binary",
-                "src": "../assets/images/dog.jpg",
+                "src": "./assets/images/dog.jpg",
                 "question": "שאלת נכון או לא נכון שהתשובה אליה היא נכון",
                 "correctAns": true,
                 "selectedAns": "",
             },
             {
                 "type": "binary",
-                "src": "../assets/images/exemple6.jpg",
+                "src": "./assets/images/exemple6.jpg",
                 "question": "שאלת נכון או לא נכון שהתשובה אליה היא לא נכון",
                 "correctAns": false,
                 "selectedAns": "",
