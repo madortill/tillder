@@ -254,7 +254,6 @@ const handlePan = () => {
     resetElement();
 
 	function resetElement() {
-
         let feedBackPic = document.querySelector(`.tillderFeedBackPic`);
         if(feedBackPic) {
             document.querySelector(`.tillderContentContainer`).removeChild(feedBackPic);
@@ -294,29 +293,40 @@ const handlePan = () => {
 
     
     function onPan(ev) {
-	    // el.className = '';
-	    transform.translate = {
-	        x: START_X + ev.deltaX,
-	        y: 0
-	    };
+        transform.translate = {
+            x: START_X + ev.deltaX,
+            y: 0
+        };
 
         if (transform.angle < 10) {
             transform.angle += 1;
         }
         let feedBackPic = document.querySelector(`.tillderFeedBackPic`);
-        if(!feedBackPic) {   
-            if (ev.additionalEvent === "panright") {
-                transform.angle = angle;
-                transform.rz = -1;
-                let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "./assets/images/right.svg"}}, );
-                document.querySelector(`.tillderContentContainer`).append(feedBackPic);
-            } else if (ev.additionalEvent === "panleft") {
-                transform.angle = angle;
-                transform.rz = 1;
-                let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "./assets/images/wrong.svg"}}, );
-                document.querySelector(`.tillderContentContainer`).append(feedBackPic);
+        if(feedBackPic) {
+            document.querySelector(`.tillderContentContainer`).removeChild(feedBackPic)  
+        }
+        if (ev.additionalEvent === "panright") {
+            transform.angle = angle;
+            transform.rz = -1;
+            let feedBackPic = El("img", {cls: `tillderFeedBackPic`, attributes:{src: "./assets/images/right.svg"}}, );
+            document.querySelector(`.tillderContentContainer`).append(feedBackPic);
+            if (transform.translate.x > 300) {
+                const event = new CustomEvent("swiped", {detail: {dir : "right"}});
+                document.querySelector(`.tillderContentContainer`).dispatchEvent(event)
+    
+            }
+        } else if (ev.additionalEvent === "panleft") {
+            transform.angle = angle;
+            transform.rz = 1;
+            let feedBackPic = El("img", {classes: [`tillderFeedBackPic`, `tillderFeedBackPicWrong`], attributes:{src: "./assets/images/wrong.svg"}}, );
+            document.querySelector(`.tillderContentContainer`).append(feedBackPic);
+            if (transform.translate.x < -300) {
+                const event = new Event("swiped", {detail: {dir : "left"}});
+                document.querySelector(`.tillderContentContainer`).dispatchEvent(event)
+    
             }
         }
+   
 	    requestElementUpdate();
 	}
 }

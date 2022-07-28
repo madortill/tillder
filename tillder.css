@@ -272,6 +272,10 @@ body, html {
     left: 5vw;
 }
 
+.tillderFeedBackPicWrong {
+    right: 5vw;
+}
+
 .tillderFeedBackContainer {
     width: 100vw;
     height: 100vh;
