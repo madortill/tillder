@@ -321,7 +321,7 @@ const handlePan = () => {
             let feedBackPic = El("img", {classes: [`tillderFeedBackPic`, `tillderFeedBackPicWrong`], attributes:{src: "./assets/images/wrong.svg"}}, );
             document.querySelector(`.tillderContentContainer`).append(feedBackPic);
             if (transform.translate.x < -300) {
-                const event = new Event("swiped", {detail: {dir : "left"}});
+                const event = new CustomEvent("swiped", {detail: {dir : "left"}});
                 document.querySelector(`.tillderContentContainer`).dispatchEvent(event)
     
             }
