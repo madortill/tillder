@@ -2,7 +2,7 @@ const DATA = {
       // tillder
       "tillder": {
         "amountOfQuestions": 2, // how many questions will actualy appear
-        "appContent":  [
+        "questions":  [
             {
                 "type": "binary",
                 "src": "./assets/images/dog.jpg",
@@ -37,7 +37,7 @@ Description: */
 window.addEventListener("load", () => { 
     document.querySelector(`.loader`).classList.add(`fade`);
     document.querySelector(`.tillder`).classList.remove(`hidden`);
-    arrTillderQuestions = shuffle(DATA.tillder.appContent);
+    arrTillderQuestions = shuffle(DATA.tillder.questions);
     addContentToQuestion();
     document.querySelector(`.odotButton`).addEventListener("click", handelAboutPage);
 });
@@ -189,7 +189,7 @@ const restartTilder = () => {
     // reset verubles
     nTillderCurrentQuestion = 0;
     nTillderCorrectAnswers = 0;
-    arrTillderQuestions = shuffle(DATA.tillder.appContent);
+    arrTillderQuestions = shuffle(DATA.tillder.questions);
     addContentToQuestion();
 }
 
